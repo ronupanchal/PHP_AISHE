@@ -1,0 +1,77 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX my: <https://drronakpanchal.wordpress.com/>
+PREFIX my1: <http://www.AISHEOntology1.org/>
+
+SELECT  ?indv ?un ?uc  WHERE  { 
+  ?indv rdf:type my:University .
+  { ?indv my:nameOfUni ?un .
+   ?indv my:codeOfUni ?uc . } union
+	  { ?indv my1:nameOfUni ?un .
+   ?indv my1:codeOfUni ?uc . }
+   
+} ORDER BY ?uc
+
+
+
+PREFIX ex: <http://www.AISHEOntology1.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+DELETE {
+   ?id a ex:University ;
+       ex:nameOfUni ?name .}
+WHERE { 
+  ?id rdf:type ex:University ;
+    ex:nameOfUni ?name .
+  FILTER(str(?id) != "4") 
+}
+
+PREFIX ex: <http://www.AISHEOntology1.org#Uni3>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+DELETE {
+   ?id a ex:University ;
+       ex:nameOfUni ?name .}
+WHERE { 
+  ?id rdf:type ex:University ;
+    ex:codeOfUni ?name .
+  FILTER(str(?id) != "4") 
+}
+
+DELETE DATA
+  { 
+    GRAPH <urn:sparql:tests:update> 
+      { 
+        <#Uni3>  <http://www.AISHEOntology1.org#nameOfUni>  "Parul University" 
+      } 
+  } 
+  
+  DELETE DATA
+{
+<http://www.AISHEOntology1.org#Uni3>
+<http://www.AISHEOntology1.org#nameOfUni>
+"Parul University" .
+}
+
+DELETE DATA
+{
+<http://www.AISHEOntology1.org#Uni3>
+<http://www.AISHEOntology1.org#codeOfUni>
+4 .
+}
+
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+DELETE DATA
+{
+<http://www.AISHEOntology1.org#Uni3>
+<http://www.AISHEOntology1.org#codeOfUni>
+"4"^^xsd:int .
+}
+DELETE DATA
+{
+<http://www.AISHEOntology1.org#Uni3>
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+<http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.AISHEOntology1.org#Uni3>
+<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+<http://www.AISHEOntology1.org#University> .
+}

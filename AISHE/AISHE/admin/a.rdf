@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY www "http://www.AISHEOntology1.org#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.AISHEOntology.org#"
+     xml:base="http://www.AISHEOntology.org"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:www="http://www.AISHEOntology1.org#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.AISHEOntology1.org">
+        <owl:imports rdf:resource="http://www.AISHEOntology.org"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AISHEOntology1.org#codeOfUni -->
+
+    <owl:AnnotationProperty rdf:about="&www;codeOfUni"/>
+    
+
+
+    <!-- http://www.AISHEOntology1.org#nameOfUni -->
+
+    <owl:AnnotationProperty rdf:about="&www;nameOfUni"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AISHEOntology1.org#University -->
+
+    <owl:Class rdf:about="&www;University"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.AISHEOntology1.org#Uni3 -->
+
+    <owl:NamedIndividual rdf:about="&www;Uni3">
+        <rdf:type rdf:resource="&www;University"/>
+        <www:codeOfUni rdf:datatype="&xsd;int">4</www:codeOfUni>
+        <www:nameOfUni rdf:datatype="&xsd;string">Parul University</www:nameOfUni>
+    </owl:NamedIndividual>
+</rdf:RDF>
